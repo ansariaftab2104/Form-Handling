@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
-const Form = () => {
+const Form = ({setUsers}) => {
   const {
     register,
     handleSubmit,
@@ -10,14 +10,14 @@ const Form = () => {
   } = useForm({
     mode: "onChange",
   });
-  // console.log(errors);
+  console.log(setUsers);
 
   return (
     <div className="w-100 h-full bg-black rounded-md text-white flex flex-col gap-3 px-3 py-2">
       <h1 className="text-xl text-center">Create User</h1>
       <form
         onSubmit={handleSubmit((data) => {
-          console.log(data);
+          setUsers((prev)=>[...prev, data])
           reset()
 
         })}
