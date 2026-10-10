@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
-const Form = ({setUsers}) => {
+const Form = ({setUsers, setToggle}) => {
   const {
     register,
     handleSubmit,
@@ -19,7 +19,7 @@ const Form = ({setUsers}) => {
         onSubmit={handleSubmit((data) => {
           setUsers((prev)=>[...prev, data])
           reset()
-
+          setToggle(false)
         })}
         action=""
       >
